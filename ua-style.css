@@ -1,0 +1,115 @@
+span.ua, span.os {
+    display: inline-block;
+    margin: 0 3px !important;
+    color: #FFFFFF !important;
+    border-radius: 5px;
+    padding: 1px 5px !important;
+    box-shadow: 0 1px 3px rgba(0, 37, 55, 0.15);
+    font-size: 12px;
+    text-transform: Capitalize !important;
+}
+
+.ua_other {
+    background-color: #428bca !important;
+    border-color: #357ebd !important;
+}
+
+.ua_ie {
+    background-color: #428bca !important;
+    border-color: #357ebd !important;
+}
+
+.ua_firefox {
+    background-color: #f0ad4e !important;
+    border-color: #eea236 !important;
+}
+
+/*.ua_maxthon {*/
+/*background-color: #7373B9 !important;*/
+/*border-color: #7373B9 !important;*/
+/*}*/
+
+.ua_ucweb {
+    background-color: #FF740F !important;
+    border-color: #d43f3a !important;
+}
+
+.ua_sogou {
+    background-color: #78ACE9 !important;
+    border-color: #4cae4c !important;
+}
+
+/*.ua_2345explorer {*/
+/*background-color: #2478B8 !important;*/
+/*border-color: #4cae4c !important;*/
+/*}*/
+
+/*.ua_2345chrome {*/
+/*background-color: #F9D024 !important;*/
+/*border-color: #4cae4c !important;*/
+/*}*/
+
+/*.ua_mi {*/
+/*background-color: #FF4A00 !important;*/
+/*border-color: #4cae4c !important;*/
+/*}*/
+
+/*.ua_lbbrowser {*/
+/*background-color: #FC9D2E !important;*/
+/*border-color: #4cae4c !important;*/
+/*}*/
+
+.ua_chrome {
+    background-color: #EE6252 !important;
+    border-color: #4cae4c !important;
+}
+
+.ua_qq {
+    background-color: #3D88A8 !important;
+    border-color: #4cae4c !important;
+}
+
+.ua_apple {
+    background-color: #E95620 !important;
+    border-color: #4cae4c !important;
+}
+
+.ua_opera {
+    background-color: #d9534f !important;
+    border-color: #d43f3a !important;
+}
+
+.os_other {
+    background-color: #39b3d7 !important;
+    border-color: #46b8da !important;
+}
+
+.os_win {
+    background-color: #39b3d7 !important;
+    border-color: #46b8da !important;
+}
+
+.os_android {
+    background-color: #98C13D !important;
+    border-color: #01B171 !important;
+}
+
+.os_ubuntu {
+    background-color: #DD4814 !important;
+    border-color: #01B171 !important;
+}
+
+.os_linux {
+    background-color: #D3B17D !important;
+    border-color: #1F1F1F !important;
+}
+
+.os_mac {
+    background-color: #666666 !important;
+    border-color: #1F1F1F !important;
+}
+
+.os_unix {
+    background-color: #014485 !important;
+    border-color: #1F1F1F !important;
+}
