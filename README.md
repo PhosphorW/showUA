@@ -8,4 +8,4 @@
 - 移除本地浏览器图标包。
 - 添加Font Awesome图标，添加ua-style.css样式表。
 
-Deemo：[本地化WordPress评论框UA信息显示](https://phower.me/archive/project/403/)
+Demo：[本地化WordPress评论框UA信息显示](https://phower.me/archive/project/403/)
