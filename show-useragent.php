@@ -163,16 +163,11 @@ function CID_unix_detect_os( $ua ) {
 		} elseif ( preg_match( '#Mandrake#i', $ua ) ) {
 			$os_code = "mandrake";
 			$os_name = "Mandrake Linux";
-		} elseif ( preg_match( '#Kindle Fire#i', $ua ) ) {//for Kindle Fire
-			$matches  = explode( ';', $ua );
-			$os_code  = "kindle";
-			$matches2 = explode( ')', $matches[4] );
-			$os_name  = $matches[2] . $matches2[0];
 		} elseif ( preg_match( '#Android#i', $ua ) ) {//Android
 			$matches   = explode( ';', $ua );
 			$os_code   = "android";
 			$matches2  = explode( ')', $matches[4] );
-			$os_name   = $matches[2] . $matches2[0];
+			$os_name   = $matches[1];
 			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
 		} elseif ( preg_match( '#SuSE#i', $ua ) ) {
 			$os_code = "suse";
