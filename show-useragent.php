@@ -168,6 +168,9 @@ function CID_unix_detect_os( $ua ) {
 			$os_code   = "android";
 			$matches2  = explode( ')', $matches[4] );
 			$os_name   = $matches[1];
+			if  ( strpos($os_name, 'Android') == false){
+			$os_name = $matches[2];
+			};
 			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
 		} elseif ( preg_match( '#SuSE#i', $ua ) ) {
 			$os_code = "suse";
@@ -464,6 +467,7 @@ function CID_detect_browser( $ua ) {
 	if ( ! $os_name ) {
 		$os_name = 'Unknown OS';
 		$os_code = 'other';
+		$os_before = '<span class="os os_other"><i class="fa fa-desktop"></i>';
 	}
 
 	return array(
@@ -493,12 +497,17 @@ function CID_friendly_string_without_template( $browser_name = '', $browser_code
 	if ( $browser_name && $os_name ) {
 		$text1 = "$browser_name | $browser_ver ";
 		$text2 = "$os_name";
+		if  ( strpos($text1, '未知浏览器') !== false){
+			$text1 = "$browser_name";
+			};
 	} elseif ( $browser_name ) {
 		$text1 = "$browser_name | $browser_ver";
+		if  ( strpos($text1, '未知浏览器') !== false){
+			$text1 = "$browser_name";
+			};
 	} elseif ( $os_name ) {
 		$text1 = "$os_name | $os_ver";
 	}
-
 	return $browser_before . ' ' . $text1 . ' </span>' . $os_before . ' ' . $text2 . '</span>';
 }
 
