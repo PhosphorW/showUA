@@ -168,6 +168,9 @@ function CID_unix_detect_os( $ua ) {
 			$os_code   = "android";
 			$matches2  = explode( ')', $matches[4] );
 			$os_name   = $matches[1];
+			if  ( strpos($os_name, 'Android') == false){
+			$os_name = $matches[2];
+			};
 			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
 		} elseif ( preg_match( '#SuSE#i', $ua ) ) {
 			$os_code = "suse";
