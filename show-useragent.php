@@ -496,7 +496,7 @@ function CID_friendly_string_without_template( $browser_name = '', $browser_code
 
 	if ( $browser_name && $os_name ) {
 		$text1 = "$browser_name | $browser_ver ";
-		$text2 = "$os_name";
+		$text2 = "$os_name $os_ver";
 		if  ( strpos($text1, '未知浏览器') !== false){
 			$text1 = "$browser_name";
 			};
@@ -506,7 +506,7 @@ function CID_friendly_string_without_template( $browser_name = '', $browser_code
 			$text1 = "$browser_name";
 			};
 	} elseif ( $os_name ) {
-		$text1 = "$os_name | $os_ver";
+		$text1 = "$os_name  $os_ver";
 	}
 	return $browser_before . ' ' . $text1 . ' </span>' . $os_before . ' ' . $text2 . '</span>';
 }
