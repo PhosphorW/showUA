@@ -310,7 +310,17 @@ function CID_detect_browser( $ua ) {
 		} else {
 			list( $os_name, $os_code, $os_ver, $os_before ) = CID_unix_detect_os( $ua );
 		}
-	} elseif ( preg_match( '#baidubrowser ([a-zA-Z0-9.]+)#i', $ua, $matches ) ) {
+	}elseif ( preg_match( '/m?(baiduboxapp)[\/ ]?([\w\.]+)/i', $ua, $matches ) ) {
+		$browser_name   = 'Baiduboxapp';
+		$browser_code   = 'baidubrowser';
+		$browser_ver    = $matches[2];
+		$browser_before = '<span class="ua ua_ucweb"><i class="fa fa-globe"></i>';
+		if ( preg_match( '/Windows/i', $ua ) ) {
+			list( $os_name, $os_code, $os_ver, $os_before ) = CID_windows_detect_os( $ua );
+		} else {
+			list( $os_name, $os_code, $os_ver, $os_before ) = CID_unix_detect_os( $ua );
+		}
+	}elseif ( preg_match( '#baidubrowser ([a-zA-Z0-9.]+)#i', $ua, $matches ) ) {
 		$browser_name   = '百度浏览器';
 		$browser_code   = 'baidubrowser';
 		$browser_ver    = $matches[1];
