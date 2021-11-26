@@ -478,11 +478,12 @@ function CID_detect_browser( $ua ) {
 		$os_name = 'Unknown OS';
 		$os_code = 'other';
 		$os_before = '<span class="os os_other"><i class="fa fa-desktop"></i>';
-		if ( preg_match( '/Macintosh/i', $ua ) ) {
+	/*	if ( preg_match( '/Macintosh/i', $ua ) ) {   
 		    	list( $os_name, $os_code, $os_ver, $os_before ) = CID_unix_detect_os( $ua );
 		} else {
 			list( $os_name, $os_code, $os_ver, $os_before ) =  CID_windows_detect_os( $ua );
-		}
+		}   */
+		list( $os_name, $os_code, $os_ver, $os_before ) = CID_unix_detect_os( $ua );
 	}
 
 	return array(
