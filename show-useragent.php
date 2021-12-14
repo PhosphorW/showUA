@@ -203,7 +203,28 @@ function CID_unix_detect_os( $ua ) {
 			$os_name = "Kanotix Linux";
 		}
 
-	} elseif ( preg_match( '/FreeBSD/i', $ua ) ) {
+	}
+	elseif ( preg_match( '#Android#i', $ua ) ) {//Android
+			$matches   = explode( ';', $ua );
+			$os_code   = "android";
+			$matches2  = explode( ')', $matches[4] );
+			$matches3  = explode('(',$matches[0]);
+			$os_name   = $matches[1];
+			if  ( substr($os_name,0,7) !== 'Android'){
+			  $os_name = $matches[2];
+			    if  ( substr($os_name,0,7) !== 'Android'){
+			      $os_name = $matches[0];
+			        if  ( substr($os_name,0,7) !== 'Android'){
+			          $os_name = $matches2[1];
+			    	    if  ( substr($os_name,0,7) !== 'Android'){
+			    	      $os_name = $matches3[1];
+			    	};
+			      }; 
+			   }; 
+			};
+			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
+		} 
+	elseif ( preg_match( '/FreeBSD/i', $ua ) ) {
 		$os_name   = "FreeBSD";
 		$os_code   = "freebsd";
 		$os_before = '<span class="os os_unix"><i class="fa fa-desktop"></i>';
