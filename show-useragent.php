@@ -290,7 +290,7 @@ function CID_detect_browser( $ua ) {
 		} else {
 			list( $os_name, $os_code, $os_ver, $os_before ) = CID_unix_detect_os( $ua );
 		}
-	} elseif ( preg_match( '#(Firefox|Phoenix|Firebird|BonEcho|GranParadiso|Minefield|Iceweasel)/([a-zA-Z0-9.]+)#i', $ua, $matches ) ) {
+	} elseif ( preg_match( '#(FxiOS|Firefox|Phoenix|Firebird|BonEcho|GranParadiso|Minefield|Iceweasel)/([a-zA-Z0-9.]+)#i', $ua, $matches ) ) {
 		$browser_name   = 'Firefox';
 		$browser_code   = 'firefox';
 		$browser_ver    = $matches[2];
