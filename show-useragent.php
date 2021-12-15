@@ -218,6 +218,9 @@ function CID_unix_detect_os( $ua ) {
 			          $os_name = $matches2[1];
 			    	    if  ( substr($os_name,0,7) !== 'Android'){
 			    	      $os_name = $matches3[1];
+					    if  ( substr($os_name,0,7) !== 'Android'){
+			    	          $os_name = 'Unknow OS';
+			    	      };
 			    	};
 			      }; 
 			   }; 
