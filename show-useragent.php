@@ -163,15 +163,36 @@ function CID_unix_detect_os( $ua ) {
 		} elseif ( preg_match( '#Mandrake#i', $ua ) ) {
 			$os_code = "mandrake";
 			$os_name = "Mandrake Linux";
-		} elseif ( preg_match( '#Android#i', $ua ) ) {//Android
-			$matches   = explode( ';', $ua );
+				} elseif ( preg_match( '#Android#i', $ua ) ) {//Android
 			$os_code   = "android";
+			$matches   = explode( ';', $ua );
 			$matches2  = explode( ')', $matches[4] );
+			$matches3  = explode('(',$matches[0]);
 			$os_name   = $matches[1];
-			if  ( strpos($os_name, 'Android') == false){
-			$os_name = $matches[2];
-			};
-			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
+			if  ( substr($os_name,0,8) !== ' Android'){
+			  $os_name = $matches[2];
+			    if  ( substr($os_name,0,8) !== ' Android'){
+			      $os_name = $matches[0];
+			        if  ( substr($os_name,0,8) !== ' Android'){
+			          $os_name = $matches2[1];
+			    	    if  ( substr($os_name,0,8) !== ' Android'){
+			    	      $os_name = $matches3[1];
+			    	        }
+			              }
+			            }
+			          }
+			elseif  (strlen($os_name) > 12){
+			$os_ver_1 = mb_strpos($ua,'(Linux; ') + mb_strlen('Linux; ');
+            $os_ver_2 = mb_strpos($ua,') Apple') - $os_ver_1;
+            $os_android = mb_substr($ua,$os_ver_1,$os_ver_2);
+            $os_name = substr($os_android,0,11);
+            if  ( strpos($os_name, ';') == true){
+                $os_name = substr($os_android,0,10);
+            } elseif ( strpos($os_name, '.') == true){
+                $os_name = substr($os_android,0,10);
+            }
+			}	 
+			 $os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
 		} elseif ( preg_match( '#SuSE#i', $ua ) ) {
 			$os_code = "suse";
 			$os_name = "SuSE Linux";
@@ -202,31 +223,37 @@ function CID_unix_detect_os( $ua ) {
 		} elseif ( preg_match( '#Kanotix#i', $ua ) ) {
 			$os_name = "Kanotix Linux";
 		}
-
-	}
-	elseif ( preg_match( '#Android#i', $ua ) ) {//Android
-			$matches   = explode( ';', $ua );
+		} elseif ( preg_match( '#Android#i', $ua ) ) {//Android
 			$os_code   = "android";
+			$matches   = explode( ';', $ua );
 			$matches2  = explode( ')', $matches[4] );
 			$matches3  = explode('(',$matches[0]);
 			$os_name   = $matches[1];
-			if  ( substr($os_name,0,7) !== 'Android'){
+			if  ( substr($os_name,0,8) !== ' Android'){
 			  $os_name = $matches[2];
-			    if  ( substr($os_name,0,7) !== 'Android'){
+			    if  ( substr($os_name,0,8) !== ' Android'){
 			      $os_name = $matches[0];
-			        if  ( substr($os_name,0,7) !== 'Android'){
+			        if  ( substr($os_name,0,8) !== ' Android'){
 			          $os_name = $matches2[1];
-			    	    if  ( substr($os_name,0,7) !== 'Android'){
+			    	    if  ( substr($os_name,0,8) !== ' Android'){
 			    	      $os_name = $matches3[1];
-					    if  ( substr($os_name,0,7) !== 'Android'){
-			    	          $os_name = 'Unknow OS';
-			    	      };
-			    	};
-			      }; 
-			   }; 
-			};
-			$os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
-		} 
+			    	        }
+			              }
+			            }
+			          }
+			elseif  (strlen($os_name) > 12){
+			$os_ver_1 = mb_strpos($ua,'(Linux; ') + mb_strlen('Linux; ');
+            $os_ver_2 = mb_strpos($ua,') Apple') - $os_ver_1;
+            $os_android = mb_substr($ua,$os_ver_1,$os_ver_2);
+            $os_name = substr($os_android,0,11);
+            if  ( strpos($os_name, ';') == true){
+                $os_name = substr($os_android,0,10);
+            } elseif ( strpos($os_name, '.') == true){
+                $os_name = substr($os_android,0,10);
+            }
+			}	 
+			 $os_before = '<span class="os os_android"><i class="fa fa-android"></i>';
+	}
 	elseif ( preg_match( '/FreeBSD/i', $ua ) ) {
 		$os_name   = "FreeBSD";
 		$os_code   = "freebsd";
